@@ -1,36 +1,25 @@
+"use client";
+
+import { motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import AnimatedSection from "@/components/AnimatedSection";
+import { FiAward, FiCheckCircle } from "react-icons/fi";
+
+const quickStats = [
+  { value: "3.81", label: "CGPA", sub: "Dean's List ×6" },
+  { value: "6+", label: "Projects", sub: "Production & Academic" },
+  { value: "7+", label: "Certs", sub: "Industry Recognised" },
+  { value: "2+", label: "Years", sub: "Coding Experience" },
+];
 
 const skillGroups = [
-  {
-    category: "Languages",
-    skills: ["Java", "PHP", "Python", "JavaScript", "C#"],
-  },
-  {
-    category: "Frontend",
-    skills: ["HTML5", "CSS3", "Bootstrap", "Responsive Design"],
-  },
-  {
-    category: "Frameworks",
-    skills: ["Laravel", "Filament", "Next.js", "React.js", "ASP.NET MVC", "Flutter"],
-  },
-  {
-    category: "CMS & E-Commerce",
-    skills: ["WordPress", "WooCommerce", "Elementor", "Custom WP Plugins"],
-  },
-  {
-    category: "Databases",
-    skills: ["MySQL", "SQLite"],
-  },
-  {
-    category: "DevOps & Tools",
-    skills: ["Docker", "Git", "GitHub", "Cloudflare", "Ubuntu Linux", "WebSocket", "XAMPP"],
-  },
-  {
-    category: "Concepts",
-    skills: ["REST APIs", "System Integration", "Automation"],
-  },
+  { category: "Languages", color: "from-cyan-500/20 to-cyan-500/5", skills: ["Java", "PHP", "Python", "JavaScript", "C#"] },
+  { category: "Frontend", color: "from-sky-500/20 to-sky-500/5", skills: ["HTML5", "CSS3", "Bootstrap", "Responsive Design"] },
+  { category: "Frameworks", color: "from-violet-500/20 to-violet-500/5", skills: ["Laravel", "Filament", "Next.js", "React.js", "ASP.NET MVC", "Flutter"] },
+  { category: "CMS & E-Commerce", color: "from-blue-500/20 to-blue-500/5", skills: ["WordPress", "WooCommerce", "Elementor", "Custom WP Plugins"] },
+  { category: "Databases", color: "from-emerald-500/20 to-emerald-500/5", skills: ["MySQL", "SQLite"] },
+  { category: "DevOps & Tools", color: "from-orange-500/20 to-orange-500/5", skills: ["Docker", "Git", "GitHub", "Cloudflare", "Ubuntu Linux", "WebSocket", "XAMPP"] },
+  { category: "Concepts", color: "from-rose-500/20 to-rose-500/5", skills: ["REST APIs", "System Integration", "Automation"] },
 ];
 
 const certifications = [
@@ -55,118 +44,177 @@ export default function About() {
     <div className="max-w-5xl mx-auto px-6 py-20">
       <SectionHeading label="// about" title="About Me" />
 
+      {/* Quick stats */}
+      <AnimatedSection className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-16">
+        {quickStats.map(({ value, label, sub }) => (
+          <div
+            key={label}
+            className="bg-[#111111] border border-[#262626] rounded-xl p-5 text-center hover:border-accent/30 hover:shadow-[0_0_20px_rgba(34,211,238,0.07)] transition-all duration-300"
+          >
+            <p className="text-2xl font-bold text-accent font-mono mb-0.5">{value}</p>
+            <p className="text-[#e5e5e5] text-xs font-medium mb-0.5">{label}</p>
+            <p className="text-[#a3a3a3] text-[10px]">{sub}</p>
+          </div>
+        ))}
+      </AnimatedSection>
+
       {/* Bio */}
-      <p className="text-[#a3a3a3] leading-relaxed max-w-2xl mb-16 text-base">
-        I&apos;m a Software Engineering student at{" "}
-        <span className="text-[#e5e5e5]">University Kuala Lumpur (MIIT)</span>, graduating in
-        Feb 2026 with a CGPA of 3.81. My background from a Tahfiz school has instilled strong
-        discipline, adaptability, and attention to detail — qualities I carry into every project.
-        I specialize in{" "}
-        <span className="text-accent">Full-Stack Web Development</span>,{" "}
-        <span className="text-accent">Backend Systems</span>, and{" "}
-        <span className="text-accent">Automation</span>, with hands-on experience across real
-        production environments.
-      </p>
+      <AnimatedSection delay={0.1} className="mb-16">
+        <div className="bg-[#111111] border border-[#262626] rounded-xl p-6 border-l-2 border-l-accent">
+          <p className="text-[#a3a3a3] leading-relaxed text-base">
+            I&apos;m a Software Engineering student at{" "}
+            <span className="text-[#e5e5e5] font-medium">University Kuala Lumpur (MIIT)</span>,
+            graduating in Feb 2026 with a CGPA of 3.81. My background from a Tahfiz school
+            has instilled strong discipline, adaptability, and attention to detail — qualities I
+            carry into every project. I specialize in{" "}
+            <span className="text-accent font-medium">Full-Stack Web Development</span>,{" "}
+            <span className="text-accent font-medium">Backend Systems</span>, and{" "}
+            <span className="text-accent font-medium">Automation</span>, with hands-on experience
+            across real production environments.
+          </p>
+        </div>
+      </AnimatedSection>
 
       {/* Education */}
-      <div className="mb-16">
-        <h3 className="text-lg font-semibold text-[#e5e5e5] mb-6">Education</h3>
-        <div className="grid sm:grid-cols-2 gap-4">
+      <AnimatedSection delay={0.15} className="mb-16">
+        <h3 className="text-lg font-bold text-[#e5e5e5] mb-6 flex items-center gap-2">
+          <span className="w-1.5 h-5 rounded-full bg-accent inline-block" />
+          Education
+        </h3>
+        <div className="space-y-4">
           {[
             {
               period: "Sep 2022 — Feb 2026",
               degree: "Bachelor of IT (Hons) in Software Engineering",
               school: "University Kuala Lumpur (MIIT)",
               cgpa: "3.81",
+              status: "Graduating",
             },
             {
               period: "Aug 2021 — Aug 2022",
               degree: "Foundation in Computer Technology",
               school: "University Kuala Lumpur (MIIT)",
               cgpa: "3.93",
+              status: "Completed",
             },
-          ].map((edu) => (
-            <Card key={edu.degree} className="border border-[#262626] bg-[#111111] ring-0 rounded-lg gap-0 py-0">
-              <CardContent className="p-5">
-                <p className="font-mono text-accent text-xs mb-1">{edu.period}</p>
+          ].map((edu, i) => (
+            <motion.div
+              key={edu.degree}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: i * 0.1 }}
+              className="bg-[#111111] border border-[#262626] rounded-xl p-5 hover:border-accent/25 hover:shadow-[0_0_20px_rgba(34,211,238,0.06)] transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+            >
+              <div>
+                <p className="font-mono text-accent text-xs mb-1.5">{edu.period}</p>
                 <h4 className="text-[#e5e5e5] font-semibold mb-1">{edu.degree}</h4>
                 <p className="text-[#a3a3a3] text-sm">{edu.school}</p>
-                <p className="text-[#a3a3a3] text-sm mt-1">
-                  CGPA: <span className="text-accent font-mono">{edu.cgpa}</span>
-                </p>
-              </CardContent>
-            </Card>
+              </div>
+              <div className="text-right shrink-0">
+                <p className="text-2xl font-bold text-accent font-mono">{edu.cgpa}</p>
+                <p className="text-[#a3a3a3] text-xs">CGPA</p>
+              </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </AnimatedSection>
 
       {/* Skills */}
-      <div className="mb-16">
-        <h3 className="text-lg font-semibold text-[#e5e5e5] mb-6">Technical Skills</h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {skillGroups.map(({ category, skills }) => (
-            <Card key={category} className="border border-[#262626] bg-[#111111] ring-0 rounded-lg gap-0 py-0">
-              <CardContent className="p-5">
-                <p className="font-mono text-accent text-xs mb-3">{category}</p>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="outline"
-                      className="font-mono text-xs text-[#e5e5e5] border-[#262626] bg-[#1a1a1a] rounded px-2 py-1 h-auto"
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+      <AnimatedSection delay={0.2} className="mb-16">
+        <h3 className="text-lg font-bold text-[#e5e5e5] mb-6 flex items-center gap-2">
+          <span className="w-1.5 h-5 rounded-full bg-accent inline-block" />
+          Technical Skills
+        </h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {skillGroups.map(({ category, color, skills }, i) => (
+            <motion.div
+              key={category}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.07 }}
+              whileHover={{ y: -2 }}
+              className="bg-[#111111] border border-[#262626] rounded-xl overflow-hidden hover:border-accent/20 hover:shadow-[0_4px_20px_rgba(34,211,238,0.07)] transition-all duration-300"
+            >
+              <div className={`bg-gradient-to-b ${color} px-4 pt-4 pb-2`}>
+                <p className="font-mono text-accent text-xs font-semibold tracking-wider uppercase">
+                  {category}
+                </p>
+              </div>
+              <div className="px-4 pb-4 pt-3 flex flex-wrap gap-2">
+                {skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="font-mono text-xs bg-[#1a1a1a] border border-[#262626] text-[#e5e5e5] px-2.5 py-1 rounded-md hover:border-accent/30 hover:text-accent transition-colors duration-200 cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </AnimatedSection>
 
-      {/* Certifications */}
-      <div className="mb-16">
-        <h3 className="text-lg font-semibold text-[#e5e5e5] mb-6">Certifications</h3>
-        <ul className="space-y-3">
-          {certifications.map((cert) => (
-            <li key={cert} className="flex items-start gap-3 text-[#a3a3a3] text-sm">
-              <span className="text-accent mt-1">▹</span>
-              {cert}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Awards */}
-      <div className="mb-16">
-        <h3 className="text-lg font-semibold text-[#e5e5e5] mb-6">Awards & Achievements</h3>
-        <ul className="space-y-3">
-          {awards.map((award) => (
-            <li key={award} className="flex items-start gap-3 text-[#a3a3a3] text-sm">
-              <span className="text-accent mt-1">▹</span>
-              {award}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Languages */}
-      <div>
-        <h3 className="text-lg font-semibold text-[#e5e5e5] mb-4">Languages</h3>
-        <div className="flex gap-4 flex-wrap">
-          <Card className="border border-[#262626] bg-[#111111] ring-0 rounded gap-0 py-0">
-            <CardContent className="px-4 py-2 text-sm text-[#a3a3a3]">
-              Bahasa Melayu — <span className="text-[#e5e5e5]">Native</span>
-            </CardContent>
-          </Card>
-          <Card className="border border-[#262626] bg-[#111111] ring-0 rounded gap-0 py-0">
-            <CardContent className="px-4 py-2 text-sm text-[#a3a3a3]">
-              English — <span className="text-[#e5e5e5]">Professional Working Proficiency</span>
-            </CardContent>
-          </Card>
+      {/* Certifications + Awards side by side */}
+      <AnimatedSection delay={0.25} className="grid lg:grid-cols-2 gap-8 mb-16">
+        <div>
+          <h3 className="text-lg font-bold text-[#e5e5e5] mb-6 flex items-center gap-2">
+            <span className="w-1.5 h-5 rounded-full bg-accent inline-block" />
+            Certifications
+          </h3>
+          <div className="space-y-2.5">
+            {certifications.map((cert) => (
+              <div
+                key={cert}
+                className="flex items-start gap-3 bg-[#111111] border border-[#262626] rounded-lg px-4 py-3 hover:border-accent/20 transition-colors duration-200"
+              >
+                <FiCheckCircle size={14} className="text-accent mt-0.5 shrink-0" />
+                <span className="text-[#a3a3a3] text-sm leading-snug">{cert}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+
+        <div>
+          <h3 className="text-lg font-bold text-[#e5e5e5] mb-6 flex items-center gap-2">
+            <span className="w-1.5 h-5 rounded-full bg-accent inline-block" />
+            Awards & Achievements
+          </h3>
+          <div className="space-y-2.5">
+            {awards.map((award) => (
+              <div
+                key={award}
+                className="flex items-start gap-3 bg-[#111111] border border-[#262626] rounded-lg px-4 py-3 hover:border-accent/20 transition-colors duration-200"
+              >
+                <FiAward size={14} className="text-accent mt-0.5 shrink-0" />
+                <span className="text-[#a3a3a3] text-sm leading-snug">{award}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Languages */}
+          <h3 className="text-lg font-bold text-[#e5e5e5] mt-8 mb-4 flex items-center gap-2">
+            <span className="w-1.5 h-5 rounded-full bg-accent inline-block" />
+            Languages
+          </h3>
+          <div className="flex flex-col gap-2.5">
+            {[
+              { lang: "Bahasa Melayu", level: "Native" },
+              { lang: "English", level: "Professional Working Proficiency" },
+            ].map(({ lang, level }) => (
+              <div
+                key={lang}
+                className="flex items-center justify-between bg-[#111111] border border-[#262626] rounded-lg px-4 py-3"
+              >
+                <span className="text-[#e5e5e5] text-sm font-medium">{lang}</span>
+                <span className="font-mono text-accent text-xs">{level}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </AnimatedSection>
     </div>
   );
 }

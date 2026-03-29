@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 interface SectionHeadingProps {
   label: string;
   title: string;
@@ -5,10 +9,16 @@ interface SectionHeadingProps {
 
 export default function SectionHeading({ label, title }: SectionHeadingProps) {
   return (
-    <div className="mb-12">
-      <p className="font-mono text-accent text-sm mb-2">{label}</p>
-      <h2 className="text-3xl font-bold text-text">{title}</h2>
-      <div className="mt-3 h-px w-16 bg-accent" />
-    </div>
+    <motion.div
+      className="mb-14"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <p className="font-mono text-accent text-xs mb-3 tracking-[0.2em] uppercase">{label}</p>
+      <h2 className="text-3xl sm:text-4xl font-bold text-[#e5e5e5] mb-4">{title}</h2>
+      <div className="h-px w-24 bg-gradient-to-r from-accent via-accent/40 to-transparent" />
+    </motion.div>
   );
 }
