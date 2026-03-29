@@ -1,5 +1,3 @@
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -39,32 +37,17 @@ body {
 }
 
 @layer base {
-  .theme {
-    --font-heading: var(--font-sans);
-    --font-sans: var(--font-sans);
-  }
   :root {
-    --background: oklch(0.06 0 0);
-    --foreground: oklch(0.9 0 0);
-    --card: oklch(0.1 0 0);
-    --card-foreground: oklch(0.9 0 0);
-    --popover: oklch(0.1 0 0);
-    --popover-foreground: oklch(0.9 0 0);
-    --primary: oklch(0.79 0.14 200);
-    --primary-foreground: oklch(0.06 0 0);
-    --secondary: oklch(0.14 0 0);
-    --secondary-foreground: oklch(0.9 0 0);
-    --muted: oklch(0.14 0 0);
-    --muted-foreground: oklch(0.64 0 0);
-    --accent: oklch(0.79 0.14 200);
-    --accent-foreground: oklch(0.06 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.18 0 0);
-    --input: oklch(0.18 0 0);
-    --ring: oklch(0.79 0.14 200);
+    --background: #0a0a0a;
+    --foreground: #e5e5e5;
+    --card: #111111;
+    --card-foreground: #e5e5e5;
+    --muted: #1a1a1a;
+    --muted-foreground: #a3a3a3;
+    --border: #262626;
+    --ring: #22d3ee;
+    --primary: #22d3ee;
+    --primary-foreground: #0a0a0a;
     --radius: 0.5rem;
-  }
-  * {
-    @apply border-border outline-ring/50;
   }
 }
