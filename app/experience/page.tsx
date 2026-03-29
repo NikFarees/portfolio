@@ -9,20 +9,30 @@ const workExperience = [
     role: "Website & System Developer",
     company: "Latitude Innovation Sdn. Bhd.",
     period: "Sep 2025 — Present",
+    type: "Work",
+    bullets: [
+      "Lead development of web systems and internal tools, taking ownership of multiple client-facing projects end to end.",
+      "Managed domain registration, server configuration, Cloudflare setup, and SMTP email integration for multiple client websites, ensuring reliable uptime and email delivery.",
+      "Improved system performance and scalability through Docker-based deployments and MySQL optimisation.",
+      "Coordinated with clients directly on requirements, design feedback, and technical handovers.",
+    ],
+  },
+  {
+    role: "Web Developer Intern",
+    company: "Latitude Innovation Sdn. Bhd.",
+    period: "Sep 2025 — Feb 2026",
     type: "Internship",
     bullets: [
       "Contributed to backend and frontend development across 5+ production projects using Laravel, Next.js, Filament, and WordPress (Elementor, WooCommerce).",
       "Assisted in system integration, testing, and debugging, helping deliver stable deployments and reducing post-launch issues by 30%.",
-      "Managed domain registration, server configuration, Cloudflare setup, and SMTP email integration for multiple client websites.",
       "Supported website design, client coordination, and technical documentation, enabling faster client onboarding.",
-      "Improved system performance and scalability through Docker-based deployments and MySQL optimization.",
     ],
   },
   {
     role: "Lecturer Assistant — Principles of Computer Programming",
     company: "University Kuala Lumpur (MIIT)",
     period: "Oct 2023 — Mar 2024",
-    type: "Academic",
+    type: "Part Time",
     bullets: [
       "Assisted in conducting weekly lectures and practical sessions for 50+ students, covering core programming concepts.",
       "Provided one-on-one academic support and debugging assistance, improving student understanding and problem-solving skills.",
@@ -40,8 +50,9 @@ const extracurricular = [
 ];
 
 const typeColors: Record<string, string> = {
+  Work: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
   Internship: "bg-accent/10 text-accent border-accent/30",
-  Academic: "bg-violet-500/10 text-violet-400 border-violet-500/30",
+  "Part Time": "bg-violet-500/10 text-violet-400 border-violet-500/30",
 };
 
 export default function Experience() {
