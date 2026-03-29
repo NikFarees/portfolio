@@ -2,9 +2,9 @@ import SectionHeading from "@/components/SectionHeading";
 
 const workExperience = [
   {
-    role: "Web Developer Intern",
+    role: "Website & System Developer",
     company: "Latitude Innovation Sdn. Bhd.",
-    period: "Sep 2025 — Feb 2026",
+    period: "Sep 2025 — Present",
     bullets: [
       "Contributed to backend and frontend development across 5+ production projects using Laravel, Next.js, Filament, and WordPress (Elementor, WooCommerce).",
       "Assisted in system integration, testing, and debugging, helping deliver stable deployments and reducing post-launch issues by 30%.",

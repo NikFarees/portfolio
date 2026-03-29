@@ -1,10 +1,12 @@
 import SectionHeading from "@/components/SectionHeading";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 
 const projects = [
   {
     title: "Malaysia's Biggest Online Auction",
-    period: "Sep 2025 — Feb 2026",
+    period: "Sep 2025 — Present",
     category: "Internship Project",
     description:
       "Real-time live auction system supporting 100+ concurrent bidders during peak sessions. Features sub-second bid updates via WebSocket and secure transactional data management.",
@@ -20,7 +22,7 @@ const projects = [
   },
   {
     title: "Air Conditioning Service Management System",
-    period: "Sep 2025 — Feb 2026",
+    period: "Sep 2025 — Present",
     category: "Internship Project",
     description:
       "Service management platform with refined admin interfaces and comprehensive developer documentation.",
@@ -36,7 +38,7 @@ const projects = [
   },
   {
     title: "School Bookshop Management System",
-    period: "Sep 2025 — Feb 2026",
+    period: "Sep 2025 — Present",
     category: "Internship Project",
     description:
       "Online bookshop platform for schools handling hundreds of orders per term, with automated email and report generation.",
@@ -51,7 +53,7 @@ const projects = [
   },
   {
     title: "ESG Consultancy Website",
-    period: "Sep 2025 — Feb 2026",
+    period: "Sep 2025 — Present",
     category: "Internship Project",
     description:
       "Professional consultancy website with full deployment, SEO configuration, and 100% email delivery resolution.",
@@ -66,7 +68,7 @@ const projects = [
   },
   {
     title: "Preschool Website Network",
-    period: "Sep 2025 — Feb 2026",
+    period: "Sep 2025 — Present",
     category: "Internship Project",
     description:
       "Multi-site network of 5+ preschool websites with responsive design, strong SEO, and stable Cloudflare-backed hosting.",
@@ -103,65 +105,69 @@ export default function Projects() {
 
       <div className="grid sm:grid-cols-2 gap-6">
         {projects.map((project) => (
-          <div
+          <Card
             key={project.title}
-            className="bg-[#111111] border border-[#262626] rounded-lg p-6 flex flex-col hover:border-[#22d3ee44] transition-colors"
+            className="flex flex-col border border-[#262626] bg-[#111111] ring-0 hover:border-accent/30 transition-colors rounded-lg gap-0 py-0"
           >
-            <div className="flex items-start justify-between gap-2 mb-1">
-              <span className="font-mono text-accent text-xs">{project.category}</span>
-              <span className="font-mono text-[#a3a3a3] text-xs whitespace-nowrap">{project.period}</span>
-            </div>
-
-            <h3 className="text-[#e5e5e5] font-semibold text-base mb-2">{project.title}</h3>
-            <p className="text-[#a3a3a3] text-sm leading-relaxed mb-4">{project.description}</p>
-
-            <ul className="space-y-1.5 mb-5 flex-1">
-              {project.bullets.map((b, i) => (
-                <li key={i} className="flex items-start gap-2 text-[#a3a3a3] text-xs">
-                  <span className="text-accent mt-0.5 shrink-0">▹</span>
-                  {b}
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex flex-wrap gap-1.5 mb-4">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="font-mono text-xs bg-[#1a1a1a] border border-[#262626] text-[#a3a3a3] px-2 py-0.5 rounded"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            {(project.github || project.live) && (
-              <div className="flex items-center gap-4 pt-3 border-t border-[#262626]">
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#a3a3a3] hover:text-accent transition-colors"
-                    aria-label="GitHub"
-                  >
-                    <FiGithub size={16} />
-                  </a>
-                )}
-                {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#a3a3a3] hover:text-accent transition-colors"
-                    aria-label="Live site"
-                  >
-                    <FiExternalLink size={16} />
-                  </a>
-                )}
+            <CardHeader className="px-6 pt-6 pb-3 gap-1">
+              <div className="flex items-start justify-between gap-2">
+                <span className="font-mono text-accent text-xs">{project.category}</span>
+                <span className="font-mono text-[#a3a3a3] text-xs whitespace-nowrap">{project.period}</span>
               </div>
-            )}
-          </div>
+              <h3 className="text-[#e5e5e5] font-semibold text-base leading-snug">{project.title}</h3>
+              <p className="text-[#a3a3a3] text-sm leading-relaxed">{project.description}</p>
+            </CardHeader>
+
+            <CardContent className="px-6 pb-6 flex flex-col flex-1 gap-4">
+              <ul className="space-y-1.5 flex-1">
+                {project.bullets.map((b, i) => (
+                  <li key={i} className="flex items-start gap-2 text-[#a3a3a3] text-xs">
+                    <span className="text-accent mt-0.5 shrink-0">▹</span>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-1.5">
+                {project.tags.map((tag) => (
+                  <Badge
+                    key={tag}
+                    variant="outline"
+                    className="font-mono text-xs text-[#a3a3a3] border-[#262626] bg-[#1a1a1a] rounded px-2 py-0.5 h-auto"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+
+              {(project.github || project.live) && (
+                <div className="flex items-center gap-4 pt-3 border-t border-[#262626]">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#a3a3a3] hover:text-accent transition-colors"
+                      aria-label="GitHub"
+                    >
+                      <FiGithub size={16} />
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#a3a3a3] hover:text-accent transition-colors"
+                      aria-label="Live site"
+                    >
+                      <FiExternalLink size={16} />
+                    </a>
+                  )}
+                </div>
+              )}
+            </CardContent>
+          </Card>
         ))}
       </div>
     </div>
