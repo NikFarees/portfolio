@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-[#262626] bg-[#0a0a0a] py-8 mt-20">
       <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-muted text-sm font-mono">
+        <p className="text-[#a3a3a3] text-sm font-mono">
           © {new Date().getFullYear()} Nik Farees
         </p>
         <div className="flex items-center gap-5">
@@ -12,7 +12,7 @@ export default function Footer() {
             href="https://github.com/NikFarees"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted hover:text-accent transition-colors"
+            className="text-[#a3a3a3] hover:text-accent transition-colors"
             aria-label="GitHub"
           >
             <FiGithub size={18} />
@@ -21,14 +21,14 @@ export default function Footer() {
             href="https://www.linkedin.com/in/nikfarees"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted hover:text-accent transition-colors"
+            className="text-[#a3a3a3] hover:text-accent transition-colors"
             aria-label="LinkedIn"
           >
             <FiLinkedin size={18} />
           </a>
           <a
             href="mailto:nfarees.faizal@gmail.com"
-            className="text-muted hover:text-accent transition-colors"
+            className="text-[#a3a3a3] hover:text-accent transition-colors"
             aria-label="Email"
           >
             <FiMail size={18} />
